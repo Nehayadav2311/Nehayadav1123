@@ -1,0 +1,585 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', system-ui, -apple-system,
+    BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+body {
+  background: #eaf2f8;
+  perspective: 1800px;
+  overflow-x: hidden;
+}
+
+/* floating background depth */
+.bg-depth {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background:
+    radial-gradient(
+      circle at 20% 30%,
+      rgba(255,255,255,0.4) 0%,
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 90% 70%,
+      rgba(165,216,255,0.3) 0%,
+      transparent 40%
+    );
+  z-index: -2;
+  pointer-events: none;
+}
+
+/* main container */
+.hospital {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+}
+
+/* HERO SECTION */
+.facility-hero {
+  background: rgba(10,40,60,0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 3rem 3rem 3rem 1rem;
+  padding: 3rem;
+  margin-bottom: 3.5rem;
+  border: 1px solid rgba(255,255,255,0.4);
+  box-shadow:
+    0 40px 60px -20px rgba(0,30,50,0.6),
+    0 0 0 1px rgba(255,255,255,0.3) inset;
+  transform: translateZ(25px) rotateX(0.7deg);
+  transition: transform 0.3s ease;
+  color: white;
+}
+
+.facility-hero:hover {
+  transform: translateZ(35px)
+             rotateX(0.4deg)
+             rotateY(0.2deg);
+  box-shadow: 0 50px 80px -15px #022b40;
+}
+
+.hero-title {
+  font-size: 4rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  text-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+.hero-title span {
+  background: linear-gradient(
+    145deg,
+    #ffe89c,
+    #b3e4ff
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.facility-grid {
+  display: grid;
+  grid-template-columns:
+    repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.8rem;
+  margin: 3rem 0 1rem;
+}
+
+.facility-card {
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(5px);
+  border-radius: 2rem 0.5rem 2rem 0.5rem;
+  padding: 1.5rem 1rem;
+  border: 1px solid rgba(255,255,255,0.25);
+  box-shadow: 0 25px 30px -20px black;
+  transform: translateZ(10px);
+  transition: all 0.25s;
+  text-align: center;
+}
+
+.facility-card:hover {
+  transform: translateZ(30px) scale(1.03);
+  background: rgba(255,255,255,0.2);
+  border-color: white;
+}
+
+.facility-card .icon {
+  font-size: 2.6rem;
+  margin-bottom: 0.8rem;
+}
+
+.facility-card h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.facility-card p {
+  opacity: 0.9;
+  font-size: 0.95rem;
+}
+
+/* SECTION HEADERS */
+.section-header {
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: #0f344b;
+  margin: 3rem 0 2rem;
+  padding-left: 1.5rem;
+  border-left: 12px solid #267c9e;
+  text-shadow: 0 2px 5px rgba(255,255,255,0.7);
+  transform: translateZ(15px);
+}
+
+/* DEPARTMENT CARDS */
+.dept-grid {
+  display: grid;
+  grid-template-columns:
+    repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin: 2rem 0;
+}
+
+.dept-card {
+  background: rgba(255,255,255,0.7);
+  backdrop-filter: blur(8px);
+  border-radius: 2.5rem 0.8rem 2.5rem 0.8rem;
+  padding: 2rem 1.5rem;
+  border: 1px solid rgba(255,255,255,0.7);
+  box-shadow:
+    0 30px 30px -20px rgba(0,50,70,0.3);
+  transition:
+    transform 0.3s cubic-bezier(
+      0.15,0.9,0.3,1.1
+    ),
+    box-shadow 0.3s;
+  transform-style: preserve-3d;
+  transform: translateZ(5px) rotateX(0deg);
+}
+
+.dept-card:hover {
+  transform:
+    translateZ(30px)
+    rotateX(1deg)
+    rotateY(-1deg);
+
+  box-shadow:
+    0 45px 50px -25px #145a7a,
+    0 0 0 1px white inset;
+
+  background: rgba(255,255,255,0.85);
+}
+
+.dept-card h3 {
+  font-size: 2rem;
+  color: #115172;
+  margin-bottom: 0.5rem;
+}
+
+.dept-card p {
+  color: #205e7c;
+}
+
+/* ===== DOCTORS GRID ===== */
+
+.doctors-grid {
+  display: grid;
+  grid-template-columns:
+    repeat(auto-fill, minmax(280px, 1fr));
+  gap: 2rem;
+  margin: 2.5rem 0;
+}
+
+.doctor-card {
+  background: rgba(255,255,255,0.6);
+  backdrop-filter: blur(6px);
+  border-radius: 2rem 0.5rem 2rem 0.5rem;
+  padding: 1.8rem 1.5rem;
+  border: 1px solid rgba(255,255,255,0.6);
+  box-shadow: 0 25px 30px -20px #113d55;
+  transition: all 0.25s;
+  transform-style: preserve-3d;
+  transform: translateZ(5px);
+  display: flex;
+  flex-direction: column;
+}
+
+.doctor-card:hover {
+  transform:
+    translateZ(30px)
+    rotateX(0.5deg)
+    rotateY(-0.8deg);
+
+  background: rgba(255,255,255,0.85);
+
+  box-shadow:
+    0 45px 50px -25px #0e4b6b,
+    0 0 0 2px rgba(255,255,255,0.8) inset;
+}
+
+.doc-avatar {
+  width: 80px;
+  height: 80px;
+  border-radius:
+    40% 60% 60% 40% /
+    50% 40% 60% 50%;
+
+  background:
+    linear-gradient(
+      130deg,
+      #4193b3,
+      #69c0df
+    );
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+
+  box-shadow:
+    8px 12px 18px
+    rgba(0,50,70,0.3);
+}
+
+.doctor-card h4 {
+  font-size: 1.7rem;
+  color: #073e58;
+  margin-bottom: 0.2rem;
+}
+
+.doctor-card .specialty {
+  font-weight: 600;
+  color: #1b6c93;
+  margin-bottom: 0.5rem;
+}
+
+.doctor-card .dept-tag {
+  background:
+    rgba(30,100,140,0.15);
+
+  align-self: flex-start;
+
+  padding: 0.3rem 1rem;
+  border-radius: 40px;
+  font-size: 0.85rem;
+  margin: 0.7rem 0;
+
+  border: 1px solid white;
+}
+
+/* ===== BOOKING SECTION ===== */
+
+.booking-slip-wrapper {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 2rem;
+  margin: 3rem 0 4rem;
+}
+
+.booking-panel {
+  background: rgba(255,255,255,0.7);
+  backdrop-filter: blur(8px);
+
+  border-radius:
+    2.8rem 0.8rem
+    2.8rem 0.8rem;
+
+  padding: 2.5rem;
+
+  box-shadow:
+    0 40px 50px -25px #0a3d57;
+
+  border:
+    1px solid rgba(255,255,255,0.8);
+
+  transform: translateZ(20px);
+  transition: transform 0.2s;
+}
+
+.booking-panel:hover {
+  transform: translateZ(35px);
+}
+
+.booking-panel h2 {
+  font-size: 2.3rem;
+  color: #114f6d;
+  margin-bottom: 2rem;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  font-weight: 600;
+  color: #1d5978;
+  display: block;
+  margin-bottom: 0.4rem;
+  font-size: 1.1rem;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+
+  padding: 1rem 1.5rem;
+
+  background:
+    rgba(255,255,255,0.8);
+
+  border:
+    1px solid rgba(100,170,210,0.4);
+
+  border-radius: 60px;
+  font-size: 1rem;
+  outline: none;
+
+  transition: 0.2s;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+
+  border-color: #1f8bbb;
+
+  box-shadow:
+    0 0 0 4px
+    rgba(35,140,200,0.2);
+
+  background: white;
+}
+
+textarea {
+  border-radius: 30px !important;
+  resize: vertical;
+}
+
+/* ===== TIME SLOT BUTTONS ===== */
+
+.time-slots {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  margin: 1.5rem 0;
+}
+
+.slot-btn {
+  background: white;
+  border: 1px solid #b3d9f0;
+  border-radius: 60px;
+  padding: 0.7rem 1.5rem;
+
+  font-weight: 600;
+  color: #0e4b6b;
+
+  cursor: pointer;
+  transition: all 0.15s;
+
+  box-shadow:
+    0 6px 12px -10px #0e4b6b;
+}
+
+.slot-btn:hover {
+  background: #c5e5ff;
+
+  transform:
+    translateY(-2px)
+    scale(1.02);
+
+  box-shadow:
+    0 15px 18px -12px #1b6485;
+}
+
+.slot-btn.selected {
+  background: #1c7da0;
+  color: white;
+  border-color: #0e4b6b;
+
+  box-shadow:
+    0 8px 14px -6px #063047;
+}
+
+/* ===== BOOK BUTTON ===== */
+
+.btn-book {
+  background:
+    linear-gradient(
+      130deg,
+      #1a6d92,
+      #3ca3cf
+    );
+
+  border: none;
+  border-radius: 60px;
+
+  padding: 1.3rem 2rem;
+
+  font-size: 1.4rem;
+  font-weight: 700;
+
+  color: white;
+  width: 100%;
+
+  cursor: pointer;
+
+  transition: 0.2s;
+
+  box-shadow:
+    0 25px 30px -15px #0a384f;
+
+  border:
+    1px solid rgba(255,255,255,0.5);
+}
+
+.btn-book:hover {
+  transform:
+    translateY(-4px)
+    scale(1.01);
+
+  background:
+    linear-gradient(
+      130deg,
+      #2182ad,
+      #4cb6e5
+    );
+
+  box-shadow:
+    0 35px 40px -18px #0c3b50;
+}
+
+/* ===== BOOKING SLIP ===== */
+
+.slip-card {
+  background:
+    rgba(255,255,255,0.7);
+
+  backdrop-filter: blur(12px);
+
+  border-radius:
+    2rem 0.5rem
+    2rem 0.5rem;
+
+  padding: 2.2rem;
+
+  border:
+    1px solid rgba(255,255,255,0.8);
+
+  box-shadow:
+    0 40px 60px -25px #0f4157,
+    0 0 0 1px white inset;
+
+  transform:
+    translateZ(25px)
+    rotateY(0.5deg);
+
+  transition: 0.3s;
+
+  height: fit-content;
+}
+
+.slip-card:hover {
+  transform:
+    translateZ(45px)
+    rotateY(1deg)
+    rotateX(0.5deg);
+
+  box-shadow:
+    0 55px 70px -20px #0e3445;
+}
+
+.slip-header {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #003753;
+
+  border-bottom:
+    3px dashed #4896b9;
+
+  padding-bottom: 0.8rem;
+  margin-bottom: 1.5rem;
+}
+
+.slip-detail {
+  background:
+    rgba(255,255,255,0.5);
+
+  border-radius: 1.5rem;
+
+  padding: 1.2rem;
+  margin-bottom: 1rem;
+
+  border: 1px solid white;
+}
+
+.slip-detail p {
+  font-size: 1.1rem;
+  margin: 0.4rem 0;
+
+  display: flex;
+  gap: 1rem;
+}
+
+.slip-detail .label {
+  font-weight: 600;
+  color: #0f4e6f;
+  min-width: 100px;
+}
+
+.slip-footer {
+  font-size: 0.9rem;
+  color: #1b6585;
+
+  text-align: right;
+  margin-top: 1.5rem;
+
+  border-top:
+    1px solid #bee0f0;
+
+  padding-top: 1rem;
+}
+
+/* ===== GLOBAL BUTTONS ===== */
+
+button,
+.slot-btn,
+.btn-book {
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+/* ===== REAL TIME MESSAGE ===== */
+
+.real-time-msg {
+  background: #e2f0f7;
+
+  border-radius: 60px;
+
+  padding: 1rem 1.5rem;
+
+  margin: 1.5rem 0 0;
+
+  font-weight: 500;
+  color: #03526b;
+}
+
+/* ===== RESPONSIVE ===== */
+
+@media (max-width: 900px) {
+
+  .booking-slip-wrapper {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-title {
+    font-size: 2.8rem;
+  }
+}
+

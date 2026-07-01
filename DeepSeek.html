@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MediCore Hospital • 3D doctors & appointment slip</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="bg-depth"></div>
+
+<div class="hospital">
+
+  <!-- BIG HOSPITAL FACILITY SECTION -->
+  <div class="facility-hero">
+    <div class="hero-title">
+      MediCore <span>Hospital</span>
+    </div>
+
+    <div style="font-size:1.6rem; margin-top:0.5rem; opacity:0.95;">
+      Excellence in care · 24/7 emergency · 500+ beds
+    </div>
+
+    <div class="facility-grid">
+
+      <div class="facility-card">
+        <span class="icon">🫀</span>
+        <h3>Cardiac unit</h3>
+        <p>4 cath labs, 24/7 intervention</p>
+      </div>
+
+      <div class="facility-card">
+        <span class="icon">🧠</span>
+        <h3>Neuro centre</h3>
+        <p>Advanced stroke unit</p>
+      </div>
+
+      <div class="facility-card">
+        <span class="icon">👶</span>
+        <h3>Maternity</h3>
+        <p>Private suites, NICU</p>
+      </div>
+
+      <div class="facility-card">
+        <span class="icon">🦴</span>
+        <h3>Orthopaedics</h3>
+        <p>Robotic joint replacement</p>
+      </div>
+
+      <div class="facility-card">
+        <span class="icon">🔬</span>
+        <h3>Diagnostics</h3>
+        <p>3T MRI, PET/CT</p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- DEPARTMENTS -->
+  <div class="section-header">
+    🏥 clinical departments
+  </div>
+
+  <div class="dept-grid">
+
+    <div class="dept-card">
+      <h3>💓 cardiology</h3>
+      <p>12 specialists · non-invasive & interventional</p>
+    </div>
+
+    <div class="dept-card">
+      <h3>🧠 neurology</h3>
+      <p>8 neurologists, stroke centre, epilepsy clinic</p>
+    </div>
+
+    <div class="dept-card">
+      <h3>🦷 dental</h3>
+      <p>cosmetic & implant dentistry</p>
+    </div>
+
+    <div class="dept-card">
+      <h3>🫁 pulmonology</h3>
+      <p>sleep lab, asthma clinic</p>
+    </div>
+
+  </div>
+
+  <!-- DOCTORS SECTION -->
+  <div class="section-header">
+    👨‍⚕️ meet our specialists (12+ doctors)
+  </div>
+
+  <div class="doctors-grid" id="doctorsGrid">
+    <!-- Filled by JavaScript -->
+  </div>
+
+  <!-- BOOK APPOINTMENT -->
+  <div class="section-header">
+    📅 book appointment & get slip
+  </div>
+
+  <div class="booking-slip-wrapper">
+
+    <!-- LEFT SIDE FORM -->
+    <div class="booking-panel">
+
+      <h2>📋 patient & slot details</h2>
+
+      <div class="form-group">
+        <label>Full name</label>
+        <input
+          type="text"
+          id="patientName"
+          placeholder="e.g. David Chen"
+          value="David Chen">
+      </div>
+
+      <div class="form-group">
+        <label>Email</label>
+        <input
+          type="email"
+          id="patientEmail"
+          placeholder="david@example.com"
+          value="david.c@example.com">
+      </div>
+
+      <div class="form-group">
+        <label>Select doctor</label>
+        <select id="doctorSelect">
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>Preferred date</label>
+        <input
+          type="date"
+          id="appDate"
+          value="2026-03-23">
+      </div>
+
+      <div>
+        <label style="margin-bottom:0.8rem;">
+          ⏳ choose time slot (click)
+        </label>
+      </div>
+
+      <div class="time-slots" id="timeSlotsContainer">
+      </div>
+
+      <div class="form-group">
+        <label>Reason (optional)</label>
+        <textarea
+          id="reason"
+          rows="2">routine follow-up</textarea>
+      </div>
+
+      <button
+        class="btn-book"
+        id="bookAppointmentBtn">
+        ✨ confirm booking & generate slip
+      </button>
+
+      <div id="liveMessage" class="real-time-msg">
+        ⚡ select time slot to enable booking
+      </div>
+
+    </div>
+
+    <!-- RIGHT SIDE BOOKING SLIP -->
+    <div class="slip-card" id="slipCard">
+
+      <div class="slip-header">
+        🧾 booking slip
+      </div>
+
+      <div class="slip-detail" id="slipContent">
+
+        <p>
+          <span class="label">Patient</span>
+          <span id="slipName">David Chen</span>
+        </p>
+
+        <p>
+          <span class="label">Doctor</span>
+          <span id="slipDoctor">
+            Dr. Elena Voss (Cardio)
+          </span>
+        </p>
+
+        <p>
+          <span class="label">Date</span>
+          <span id="slipDate">2026-03-23</span>
+        </p>
+
+        <p>
+          <span class="label">Time</span>
+          <span id="slipTime">—</span>
+        </p>
+
+        <p>
+          <span class="label">Reason</span>
+          <span id="slipReason">
+            routine follow-up
+          </span>
+        </p>
+
+        <p>
+          <span class="label">Booking ID</span>
+          <span id="slipID">
+            MC-5421-26
+          </span>
+        </p>
+
+      </div>
+
+      <div class="slip-footer">
+        ✅ confirmed · e-mail sent
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
